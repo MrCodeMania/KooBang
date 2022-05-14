@@ -6,7 +6,7 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class ConsumerDto {
+public class ProductDTO {
     @NotNull
     @ApiModelProperty(value = "소비자 ID")
     private int id;

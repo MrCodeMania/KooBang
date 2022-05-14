@@ -1,7 +1,10 @@
 package com.kabaeng.koobang.repository;
 
-import org.springframework.stereotype.Repository;
+import com.kabaeng.koobang.domain.Consumer;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public class ConsumerRepository {
+import java.util.Optional;
+
+public interface ConsumerRepository extends JpaRepository<Consumer, Long> {
+    Optional<Consumer> findById(Long id);
 }

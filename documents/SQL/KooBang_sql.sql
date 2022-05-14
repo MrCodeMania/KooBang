@@ -9,16 +9,16 @@
 -- drop table Advertising;
 
 ﻿CREATE TABLE `Consumer_Info` (
-	`id` INT NOT NULL,
+	`id` BIGINT NOT NULL,
 	`consumer_email` VARCHAR(50)	NOT NULL,
 	`consumer_pwd`	VARCHAR(100)	NOT NULL,
 	`consumer_name`	VARCHAR(10)	NOT NULL,
-	`consumer_phone`	VARCHAR(10)	NOT NULL
+	`consumer_phone`	VARCHAR(20)	NOT NULL
 );
 
 CREATE TABLE `Product_Info` (
-	`product_id`	INT	NOT NULL,
-	`vendor_id`	INT	NOT NULL,
+	`product_id`	BIGINT	NOT NULL,
+	`vendor_id`	BIGINT	NOT NULL,
 	`product_name`	VARCHAR(50)	NOT NULL,
 	`product_image`	VARCHAR(100)	NOT NULL,
 	`product_main_category`	VARCHAR(20)	NOT NULL,
@@ -35,8 +35,8 @@ CREATE TABLE `Product_Info` (
 );
 
 CREATE TABLE `Consumer_Address` (
-	`address_id`	INT	NOT NULL,
-	`consumer_id`	INT	NOT NULL,
+	`address_id`	BIGINT	NOT NULL,
+	`consumer_id`	BIGINT	NOT NULL,
 	`receiver_name`	VARCHAR(10)	NOT NULL,
 	`receiver_address`	VARCHAR(50)	NOT NULL,
 	`receiver_phone`	VARCHAR(10)	NOT NULL,
@@ -45,46 +45,46 @@ CREATE TABLE `Consumer_Address` (
 );
 
 CREATE TABLE `Product_Review` (
-	`review_id`	INT	NOT NULL,
-	`consumer_id`	INT	NOT NULL,
-	`product_id`	INT	NOT NULL,
+	`review_id`	BIGINT	NOT NULL,
+	`consumer_id`	BIGINT	NOT NULL,
+	`product_id`	BIGINT	NOT NULL,
 	`review_summary`	VARCHAR(10)	NULL,
 	`review_contents`	BLOB	NULL,
 	`review_image`	VARCHAR(100)	NULL,
 	`review_rating`	INT	NOT NULL,
 	`review_date`	DATE	NOT NULL,
-	`vendor_id`	INT	NOT NULL
+	`vendor_id`	BIGINT	NOT NULL
 );
 
 CREATE TABLE `Order_List` (
-	`order_id`	INT	NOT NULL,
-	`consumer_id`	INT	NOT NULL,
-	`product_id`	INT	NOT NULL,
+	`order_id`	BIGINT	NOT NULL,
+	`consumer_id`	BIGINT	NOT NULL,
+	`product_id`	BIGINT	NOT NULL,
 	`order_quantity`	INT	NOT NULL,
-	`vendor_id`	INT	NOT NULL
+	`vendor_id`	BIGINT	NOT NULL
 );
 
 CREATE TABLE `Basket` (
-	`consumer_id`	INT	NOT NULL,
-	`product_id`	INT	NOT NULL,
+	`consumer_id`	BIGINT	NOT NULL,
+	`product_id`	BIGINT	NOT NULL,
 	`order_quantity`	INT	NOT NULL,
-	`vendor_id`	INT	NOT NULL
+	`vendor_id`	BIGINT	NOT NULL
 );
 
 CREATE TABLE `Advertising` (
-	`ad_id`	INT	NOT NULL,
-	`product_id`	INT	NOT NULL,
-	`vendor_id`	INT	NOT NULL
+	`ad_id`	BIGINT	NOT NULL,
+	`product_id`	BIGINT	NOT NULL,
+	`vendor_id`	BIGINT	NOT NULL
 );
 
 CREATE TABLE `Favorite_List` (
-	`consumer_id`	INT	NOT NULL,
-	`product_id`	INT	NOT NULL,
-	`vendor_id`	INT	NOT NULL
+	`consumer_id`	BIGINT	NOT NULL,
+	`product_id`	BIGINT	NOT NULL,
+	`vendor_id`	BIGINT	NOT NULL
 );
 
 CREATE TABLE `Vendor_Info` (
-	`id`	INT	NOT NULL,
+	`id`	BIGINT	NOT NULL,
 	`vendor_name`	VARCHAR(50)	NOT NULL,
 	`vendor_registration_number`	VARCHAR(10)	NOT NULL,
 	`vendor_phone`	VARCHAR(10)	NOT NULL
@@ -174,7 +174,7 @@ REFERENCES `Product_Info` (
 	`product_id`
 );
 
-ALTER TABLE `Advertising` ADD CONSTRAINT `FK_Product_Info_TO_Advertising_2` FOREIGN KEY (
+ALTER TABLE `Advertising` ADD CONSTRAINT `FK_Product_Info_TO_Advertisconsumer_infoing_2` FOREIGN KEY (
 	`vendor_id`
 )
 REFERENCES `Product_Info` (

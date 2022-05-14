@@ -1,6 +1,6 @@
 package com.kabaeng.koobang.controller;
 
-import com.kabaeng.koobang.dto.ConsumerDto;
+import com.kabaeng.koobang.dto.ConsumerDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api("ConsumerController")
+@Api("ProductController")
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/consumer")
+@RequestMapping("/product")
 public class ProductController {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
@@ -24,10 +24,10 @@ public class ProductController {
 
     @ApiOperation(value = "소비자 정보", notes = "소비자 정보를 반환한다.")
     @GetMapping
-    public ResponseEntity<ConsumerDto> getConsumerInfoDto() throws Exception {
+    public ResponseEntity<ConsumerDTO> getConsumerInfoDto() throws Exception {
         logger.info("getConsumerInfoDto - 호출");
-        ConsumerDto consumerDto = new ConsumerDto();
-        return new ResponseEntity<ConsumerDto>(consumerDto, HttpStatus.OK);
+        ConsumerDTO consumerDto = new ConsumerDTO();
+        return new ResponseEntity<ConsumerDTO>(consumerDto, HttpStatus.OK);
     }
 
 

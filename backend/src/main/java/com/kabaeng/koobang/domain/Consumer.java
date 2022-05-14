@@ -2,31 +2,42 @@ package com.kabaeng.koobang.domain;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import javax.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Data
-@ApiModel(value = "ConsumerInfo : 소비자 정보")
+@Entity
+@Table(name="consumer_info")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ApiModel(value = "Consumer : 소비자 정보")
 public class Consumer {
 
-    @NotNull
+    @Id
     @ApiModelProperty(value = "소비자 ID")
-    private int id;
+    private Long id;
 
-    @NotNull
+    @Column(name="consumer_email")
     @ApiModelProperty(value = "소비자 E-mail")
     private String consumerEmail;
 
-    @NotNull
+    @Column(name="consumer_pwd")
     @ApiModelProperty(value = "소비자 비밀번호")
     private String consumerPassword;
 
-    @NotNull
+    @Column(name="consumer_name")
     @ApiModelProperty(value = "소비자 이름")
     private String consumerName;
 
-    @NotNull
+    @Column(name="consumer_phone")
     @ApiModelProperty(value = "소비자 전화번호")
     private String consumerPhone;
 
